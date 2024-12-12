@@ -26,15 +26,18 @@ let
 
       # Nixpkgs puts imgtool in the top-level set as mcuboot-imgtool since 2024-10
       imgtool =
-        if pkgs ? mcuboot-imgtool then pkgs.mcuboot-imgtool.override {
-          python3Packages = self;
-        } else super.imgtool;
+        if pkgs ? mcuboot-imgtool then
+          pkgs.mcuboot-imgtool.override
+            {
+              python3Packages = self;
+            } else super.imgtool;
 
       # Upstream bug. Bz is not a valid pypi package.
       bz = null;
 
       # HACK: Older Zephyr depends on these missing dependencies
       sphinxcontrib-svg2pdfconverter = super.sphinxcontrib-svg2pdfconverter or null;
+      sphinx-lint = null;
     };
   };
 
