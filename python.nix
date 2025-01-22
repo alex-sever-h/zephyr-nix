@@ -35,6 +35,9 @@ let
       # Upstream bug. Bz is not a valid pypi package.
       bz = null;
 
+      # Upstream bug. Anytree is not compatible with poetry-core v2.
+      anytree = null;
+
       # HACK: Older Zephyr depends on these missing dependencies
       sphinxcontrib-svg2pdfconverter = super.sphinxcontrib-svg2pdfconverter or null;
       sphinx-lint = null;
